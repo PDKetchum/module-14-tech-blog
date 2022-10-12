@@ -1,0 +1,22 @@
+[
+  {
+    "title": "Javascript",
+    "content": "I learned Javascript Fundamentals today!",
+    "user_id": 1
+  },
+  {
+    "title": "SQL Help",
+    "content": "Does anyone know how to create databases?",
+    "user_id": 3
+  },
+  {
+    "title": "REACT",
+    "content": "I can't wait to learn REACT.js!",
+    "user_id": 2
+  },
+  {
+    "title": "JAVA Coding Bootcamp Recommendations?",
+    "content": "Anyone have any suggestionf for Java coding bootcamps? I'd love to learn",
+    "user_id": 1
+  }
+]
