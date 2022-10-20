@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -31,10 +30,10 @@
               <a class="nav-link" href="#">Dashboard</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Login</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link disabled">Logout</a>
+              {{#if logged_in}}
+              <button class="nav-link no-button" id="logout-button">Logout</a>
+              {{else}}
+              <a class="nav-link" href="/login">Login</a>
             </li>
           </ul>
         </div>
@@ -43,7 +42,16 @@
     <div class="jumbotron m-3">
       <h1 class="display-4">Tech Blog</h1>
     </div>
-    <!--add handlebars body here-->
-    <script src="	https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <main>
+      {{{body}}}
+    </main>
+
+    {{#if logged_in}}
+      <script src="/javascript/logout.js"></script>
+    {{/if}}
+    
+    <script
+      src="	https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+    ></script>
   </body>
 </html>
