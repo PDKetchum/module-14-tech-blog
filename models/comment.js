@@ -11,11 +11,18 @@ Comment.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    user_username: {
+    post_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: "user",
-        key: "username",
+        model: "Post",
+        key: "id",
+      },
+    },
+    user_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: "User",
+        key: "id",
       },
     },
     content: {
@@ -27,7 +34,7 @@ Comment.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: "comment",
+    modelName: "Comment",
   }
 );
 
