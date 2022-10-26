@@ -2,21 +2,25 @@
   {
     "title": "Javascript",
     "content": "I learned Javascript Fundamentals today!",
+    "date_created": "March 15, 2021",
     "user_id": 1
   },
   {
     "title": "SQL Help",
     "content": "Does anyone know how to create databases?",
+    "date_created": "June 20, 2021",
     "user_id": 3
   },
   {
     "title": "REACT",
     "content": "I can't wait to learn REACT.js!",
+    "date_created": "February 21, 2021",
     "user_id": 2
   },
   {
     "title": "JAVA Coding Bootcamp Recommendations?",
     "content": "Anyone have any suggestions for Java coding bootcamps? I'd love to learn",
+    "date_created": "January 06, 2021",
     "user_id": 1
   }
 ]

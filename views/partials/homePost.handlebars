@@ -2,7 +2,10 @@
   <div class="card m-3" style="width: 80rem">
     <div class="card-header">
       <h5 class="d-inline">{{title}}</h5>
-      <p class="d-inline float-end">{{User.username}}</p>
+      <p class="d-inline float-end">Date posted:
+        {{format_date date_created}}
+        By user:
+        {{User.username}}</p>
     </div>
     <div class="card-body">
       <p class="card-text">{{content}}</p>
