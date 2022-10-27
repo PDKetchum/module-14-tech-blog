@@ -50,7 +50,32 @@ router.get("/dashboard", withAuth, async (req, res) => {
     const userPosts = userData.get({ plain: true });
     console.log(userPosts);
     res.render("dashboard", {
-      userPosts: userPosts.Posts,
+      userPosts: userPosts.Post,
+      logged_in: req.session.logged_in,
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
+router.get("/post/:id", withAuth, async (req, res) => {
+  try {
+    const userData = await Post.findByPk(req.params.id, {
+      include: [
+        {
+          model: Comment,
+          include: [{ model: User, attributes: ["username"] }],
+          required: true,
+        },
+        { model: User, attributes: ["username"] },
+      ],
+    });
+
+    const userPosts = userData.get({ plain: true });
+    console.log(userPosts);
+    res.render("post", {
+      userPosts: userPosts,
       logged_in: req.session.logged_in,
     });
   } catch (err) {

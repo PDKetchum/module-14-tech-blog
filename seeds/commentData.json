@@ -1,1 +1,44 @@
-{}
+[
+  {
+    "post_id": "1",
+    "user_id": "2",
+    "content": "How cool. I enjoyed learning Javascript",
+    "date_created": "March 15, 2021"
+  },
+  {
+    "post_id": "1",
+    "user_id": "3",
+    "content": "Javascript rocks!",
+    "date_created": "March 15, 2021"
+  },
+  {
+    "post_id": "2",
+    "user_id": "1",
+    "content": "I know some resources you can check. Check out https://dev.mysql.com/doc/",
+    "date_created": "June 20, 2021"
+  },
+  {
+    "post_id": "2",
+    "user_id": "2",
+    "content": "Here's a page that helped me understand -> https://www.w3schools.com/sql/sql_intro.asp",
+    "date_created": "June 21, 2021"
+  },
+  {
+    "post_id": "3",
+    "user_id": "4",
+    "content": "Me too!! :D",
+    "date_created": "February 25, 2021"
+  },
+  {
+    "post_id": "4",
+    "user_id": "2",
+    "content": "Code Academy has some free lessons https://www.codecademy.com/learn/learn-java",
+    "date_created": "January 06, 2021"
+  },
+  {
+    "post_id": "4",
+    "user_id": "4",
+    "content": "Check out https://www.coursereport.com/subjects/java",
+    "date_created": "January 07, 2021"
+  }
+]
