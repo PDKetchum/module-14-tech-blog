@@ -2,9 +2,12 @@
   <div class="card m-3" style="width: 80rem">
     <div class="card-header">
       <h5 class="d-inline">{{title}}</h5>
+      <p class="d-inline float-end">Date posted:
+        {{format_date date_created}}</p>
     </div>
     <div class="card-body">
       <p class="card-text">{{content}}</p>
+      <a href="#" class="btn btn-primary">Click to view post or comment</a>
     </div>
   </div>
 </div>
