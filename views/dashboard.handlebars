@@ -1,9 +1,9 @@
 <div class="d-flex align-items-center justify-content-center">
   <h2>MY POSTS</h2>
 </div>
-{{#each userPosts as |userPost|}}
+{{#each userPosts.Posts as |userPost|}}
 {{>userPost}}
 {{/each}}
 <div class="d-flex align-items-center justify-content-center">
-  <button type="submit" class="btn btn-primary">Submit a new post</button>
+  <a href="./newpost" type="submit" class="btn btn-primary">Submit a new post</a>
 </div>

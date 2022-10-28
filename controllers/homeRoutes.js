@@ -28,6 +28,7 @@ router.get("/", async (req, res) => {
 
     res.render("homepage", {
       posts: posts,
+      logged_in: req.session.logged_in,
     });
   } catch (err) {
     console.log(err);
@@ -48,13 +49,18 @@ router.get("/dashboard", withAuth, async (req, res) => {
     const userPosts = userData.get({ plain: true });
     console.log(userPosts);
     res.render("dashboard", {
-      userPosts: userPosts.Post,
+      userPosts: userPosts,
       logged_in: req.session.logged_in,
     });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
   }
+});
+
+router.get("/newpost", withAuth, (req, res) => {
+  // If the user is already logged in, redirect the request to another route
+  res.render("newPostForm");
 });
 
 router.get("/post/:id", withAuth, async (req, res) => {
