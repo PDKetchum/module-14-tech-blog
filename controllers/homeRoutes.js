@@ -26,7 +26,6 @@ router.get("/", async (req, res) => {
 
     const posts = dbPostData.map((post) => post.get({ plain: true }));
 
-    console.log(posts);
     res.render("homepage", {
       posts: posts,
     });
@@ -37,7 +36,6 @@ router.get("/", async (req, res) => {
 });
 
 router.get("/dashboard", withAuth, async (req, res) => {
-  console.log(req.session.user_id);
   try {
     const userData = await User.findByPk(req.session.user_id, {
       include: [

@@ -1,18 +1,18 @@
 <div class="d-flex align-items-center justify-content-center">
   <div class="card m-3" style="width: 80rem">
-    <div class="card-header">
-      <h5 class="d-inline">{{title}}</h5>
+    <div class="card-header text-bg-info">
+      <h5 class="d-inline">{{userPosts.title}}</h5>
       <p class="d-inline float-end">Date posted:
-        {{format_date date_created}}
+        {{format_date userPosts.date_created}}
         By user:
-        {{User.username}}</p>
+        {{userPosts.User.username}}</p>
     </div>
     <div class="card-body">
-      <p class="card-text">{{content}}</p>
+      <p class="card-text">{{userPosts.content}}</p>
     </div>
   </div>
 </div>
-{{#each Comments as |comment|}}
+{{#each userPosts.Comments as |comment|}}
 {{>comment}}
 {{/each}}
 <div class="d-flex align-items-center justify-content-center">
@@ -23,10 +23,11 @@
       </h5>
       <textarea
         class="form-control"
-        id="exampleFormControlTextarea1"
+        id="form-text"
         rows="3"
       ></textarea>
-      <button type="submit" class="btn btn-primary m-3">Submit</button>
+      <button type="submit" id="submit-comment-btn"class="btn btn-primary m-3">Submit</button>
     </div>
   </div>
 </div>
+<script src="/javascript/comment.js"></script>
