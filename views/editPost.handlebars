@@ -2,16 +2,20 @@
   <div class="card m-3" style="width: 80rem">
     <div class="card-header">
       <h4 for="exampleFormControlInput1" class="form-label">Title</h4>
-      <input class="form-control" id="title-text" />
+      <input class="form-control" id="title-text" value="{{userPosts.title}}" />
     </div>
     <div class="m-3">
       <h5 for="exampleFormControlTextarea1" class="form-label">Text</h5>
-      <textarea class="form-control" id="content-text" rows="3"></textarea>
+      <textarea
+        class="form-control"
+        id="content-text"
+        rows="3"
+      >{{userPosts.content}}</textarea>
       <button
-        id="submit-comment-btn"
+        id="update-comment-btn"
         type="submit"
         class="btn btn-primary m-3"
-      >Submit</button>
+      >update</button>
     </div>
   </div>
 </div>
