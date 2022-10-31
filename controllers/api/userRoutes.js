@@ -48,7 +48,7 @@ router.delete("/:id", withAuth, async (req, res) => {
   }
 });
 
-router.post("/", async (req, res) => {
+router.post("/signup", async (req, res) => {
   // Create a user
   try {
     const userData = await User.create(req.body);

@@ -14,9 +14,26 @@ const PORT = process.env.PORT || 3001;
 app.engine("handlebars", hbs.engine);
 app.set("view engine", "handlebars");
 
+var ehbs = exphbs.create({});
+
+ehbs.handlebars.registerHelper("checkUser", function (userPosts, user_id) {
+  console.log(user_id);
+  console.log(userPosts.user_id);
+  if (userPosts.user_id === user_id) {
+    return `
+    <a href="/editpost" class=" d-inline btn btn-primary">Click edit post</a>
+    <button id="delete-btn" class=" d-inline btn btn-primary">Click to delete post</a>`;
+  }
+});
+
 const sess = {
   secret: "Super secret secret",
-  cookie: { maxAge: 300000, httpOnly: true, secure: false, sameSite: "strict" },
+  cookie: {
+    maxAge: 86400000,
+    httpOnly: true,
+    secure: false,
+    sameSite: "strict",
+  },
   resave: false,
   saveUninitialized: true,
   store: new SequelizeStore({

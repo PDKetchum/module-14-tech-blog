@@ -13,6 +13,15 @@ router.get("/login", (req, res) => {
   res.render("login");
 });
 
+router.get("/signup", (req, res) => {
+  // If the user is already logged in, redirect the request to another route
+  if (req.session.logged_in) {
+    res.redirect("/");
+    return;
+  }
+  res.render("signup");
+});
+
 router.get("/", async (req, res) => {
   try {
     const dbPostData = await Post.findAll({
@@ -29,6 +38,7 @@ router.get("/", async (req, res) => {
     res.render("homepage", {
       posts: posts,
       logged_in: req.session.logged_in,
+      user_id: req.session.user_id,
     });
   } catch (err) {
     console.log(err);
@@ -65,22 +75,49 @@ router.get("/newpost", withAuth, (req, res) => {
 
 router.get("/post/:id", withAuth, async (req, res) => {
   try {
+    console.log(req.params.id);
     const userData = await Post.findByPk(req.params.id, {
       include: [
         {
           model: Comment,
           include: [{ model: User, attributes: ["username"] }],
-          required: true,
         },
         { model: User, attributes: ["username"] },
       ],
     });
-
+    console.log(userData);
     const userPosts = userData.get({ plain: true });
     console.log(userPosts);
     res.render("post", {
       userPosts: userPosts,
       logged_in: req.session.logged_in,
+      user_id: req.session.user_id,
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
+router.get("/editpost", withAuth, async (req, res) => {
+  try {
+    console.log(req.params.id);
+    const userData = await Post.findByPk(req.params.id, {
+      include: [
+        {
+          model: Comment,
+          include: [{ model: User, attributes: ["username"] }],
+        },
+        { model: User, attributes: ["username"] },
+      ],
+    });
+    console.log(userData);
+    const userPosts = userData.get({ plain: true });
+    console.log(userPosts);
+    res.render("editpost", {
+      userPosts: userPosts,
+      logged_in: req.session.logged_in,
+      user_id: req.session.user_id,
     });
   } catch (err) {
     console.log(err);

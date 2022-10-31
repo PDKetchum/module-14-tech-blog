@@ -9,7 +9,10 @@
     </div>
     <div class="card-body">
       <p class="card-text">{{userPosts.content}}</p>
+     {{#checkUser userPosts user_id}}
+     {{/checkUser}}
     </div>
+
   </div>
 </div>
 {{#each userPosts.Comments as |comment|}}
@@ -31,3 +34,4 @@
   </div>
 </div>
 <script src="/javascript/newComment.js"></script>
+<script src="/javascript/deletePost.js"></script>
