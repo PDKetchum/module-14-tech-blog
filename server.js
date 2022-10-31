@@ -26,8 +26,8 @@ ehbs.handlebars.registerHelper("checkUserPosts", function (userPosts, user_id) {
 
 ehbs.handlebars.registerHelper(
   "checkUserComments",
-  function (userPosts, user_id) {
-    if (userPosts.user_id === user_id) {
+  function (comment, user_id) {
+    if (comment.user_id === user_id) {
       return `
     <a href="/editpost/${userPosts.id}" class=" d-inline btn btn-primary">Click edit comment</a>
     <button id="delete-btn" class=" d-inline btn btn-primary">Click to delete post</a>`;
