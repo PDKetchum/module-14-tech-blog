@@ -38,7 +38,7 @@ router.get("/", async (req, res) => {
     res.render("homepage", {
       posts: posts,
       logged_in: req.session.logged_in,
-      user_id: req.session.user_id,
+      logged_user_id: req.session.user_id,
     });
   } catch (err) {
     console.log(err);
@@ -85,10 +85,11 @@ router.get("/post/:id", withAuth, async (req, res) => {
     });
     console.log(userData);
     const userPosts = userData.get({ plain: true });
+    console.log(`session user id ${req.session.user_id}`);
     res.render("post", {
       userPosts: userPosts,
       logged_in: req.session.logged_in,
-      user_id: req.session.user_id,
+      logged_user_id: req.session.user_id,
     });
   } catch (err) {
     console.log(err);
@@ -114,7 +115,26 @@ router.get("/editpost/:id", withAuth, async (req, res) => {
     res.render("editpost", {
       userPosts: userPosts,
       logged_in: req.session.logged_in,
-      user_id: req.session.user_id,
+      logged_user_id: req.session.user_id,
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
+router.get("/editcomment/:id", withAuth, async (req, res) => {
+  try {
+    console.log(req.params.id);
+    const userData = await Comment.findByPk(req.params.id, {
+      include: [{ model: User, attributes: ["username"] }],
+    });
+    const userComments = userData.get({ plain: true });
+    console.log(userComments);
+    res.render("editComment", {
+      userPosts: userComments,
+      logged_in: req.session.logged_in,
+      logged_user_id: req.session.user_id,
     });
   } catch (err) {
     console.log(err);

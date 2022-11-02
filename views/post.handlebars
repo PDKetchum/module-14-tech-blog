@@ -9,14 +9,14 @@
     </div>
     <div class="card-body">
       <p class="card-text">{{userPosts.content}}</p>
-     {{#checkUserPosts userPosts user_id}}
+     {{#checkUserPosts userPosts logged_user_id}}
      {{/checkUserPosts}}
     </div>
 
   </div>
 </div>
 {{#each userPosts.Comments as |comment|}}
-{{>comment}}
+{{>comment logged_user_id=../logged_user_id}}
 {{/each}}
 <div class="d-flex align-items-center justify-content-center">
   <div class="card m-3" style="width: 70rem">

@@ -16,21 +16,26 @@ app.set("view engine", "handlebars");
 
 var ehbs = exphbs.create({});
 
-ehbs.handlebars.registerHelper("checkUserPosts", function (userPosts, user_id) {
-  if (userPosts.user_id === user_id) {
-    return `
+ehbs.handlebars.registerHelper(
+  "checkUserPosts",
+  function (userPosts, logged_user_id) {
+    console.log(`user posts ${userPosts}`);
+    console.log(`logged user ${logged_user_id}`);
+    if (userPosts.user_id === logged_user_id) {
+      return `
     <a href="/editpost/${userPosts.id}" class=" d-inline btn btn-primary">Click edit post</a>
     <button id="delete-btn" class=" d-inline btn btn-primary">Click to delete post</a>`;
+    }
   }
-});
+);
 
 ehbs.handlebars.registerHelper(
   "checkUserComments",
-  function (comment, user_id) {
-    if (comment.user_id === user_id) {
+  function (comment_id, user_id, logged_user_id) {
+    if (user_id === logged_user_id) {
       return `
-    <a href="/editpost/${userPosts.id}" class=" d-inline btn btn-primary">Click edit comment</a>
-    <button id="delete-btn" class=" d-inline btn btn-primary">Click to delete post</a>`;
+    <a href="/editcomment/${comment_id}" class=" d-inline btn btn-primary">Click to edit comment</a>
+    <button id="delete-btn" class=" d-inline btn btn-primary">Click to delete comment</a>`;
     }
   }
 );
