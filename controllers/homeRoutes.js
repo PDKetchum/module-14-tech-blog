@@ -83,9 +83,8 @@ router.get("/post/:id", withAuth, async (req, res) => {
         { model: User, attributes: ["username"] },
       ],
     });
-    console.log(userData);
+
     const userPosts = userData.get({ plain: true });
-    console.log(`session user id ${req.session.user_id}`);
     res.render("post", {
       userPosts: userPosts,
       logged_in: req.session.logged_in,
@@ -127,12 +126,13 @@ router.get("/editcomment/:id", withAuth, async (req, res) => {
   try {
     console.log(req.params.id);
     const userData = await Comment.findByPk(req.params.id, {
+      include: [{ model: Post, attributes: ["post_id"] }],
       include: [{ model: User, attributes: ["username"] }],
     });
     const userComments = userData.get({ plain: true });
     console.log(userComments);
     res.render("editComment", {
-      userPosts: userComments,
+      userComments: userComments,
       logged_in: req.session.logged_in,
       logged_user_id: req.session.user_id,
     });

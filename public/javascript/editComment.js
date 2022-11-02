@@ -5,7 +5,6 @@ async function editComment(event) {
   const contentText = document.querySelector("#content-text").value.trim();
   const id = document.location.pathname.split("/").at(-1);
 
-  console.log(id);
   if (contentText) {
     const response = await fetch(`/api/comment/${id}`, {
       method: "put",
@@ -14,9 +13,9 @@ async function editComment(event) {
       }),
       headers: { "Content-Type": "application/json" },
     });
-    console.log(response);
+    const comment = await response.json();
     if (response.ok) {
-      document.location.replace(`/comment/${id}`);
+      document.location.replace(`/post/${comment.post_id}`);
     } else {
       alert(response.statusText);
     }

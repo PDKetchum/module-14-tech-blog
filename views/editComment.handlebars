@@ -1,19 +1,21 @@
 <div class="d-flex align-items-center justify-content-center">
   <div class="card m-3" style="width: 80rem">
     <div class="m-3">
-      <h5 for="exampleFormControlTextarea1" class="form-label">Text</h5>
+      <h5 for="exampleFormControlTextarea1" class="form-label">Comment</h5>
       <textarea
         class="form-control"
         id="content-text"
         rows="3"
-      >{{userComment.content}}</textarea>
+      >{{userComments.content}}</textarea>
       <button
         id="update-comment-btn"
         type="submit"
         class="btn btn-primary m-3"
-      >update</button>
+      >Update Comment</button>
+      <button id="delete-btn" class=" d-inline btn btn-primary">Delete comment</a>
     </div>
   </div>
 </div>
 
 <script src="/javascript/editComment.js"></script>
+<script src="/javascript/deleteComment.js"></script>

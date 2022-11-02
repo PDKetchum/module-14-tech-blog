@@ -34,8 +34,8 @@ ehbs.handlebars.registerHelper(
   function (comment_id, user_id, logged_user_id) {
     if (user_id === logged_user_id) {
       return `
-    <a href="/editcomment/${comment_id}" class=" d-inline btn btn-primary">Click to edit comment</a>
-    <button id="delete-btn" class=" d-inline btn btn-primary">Click to delete comment</a>`;
+    <a href="/editcomment/${comment_id}" class=" d-inline btn btn-primary">Click to edit or delete comment</a>
+    `;
     }
   }
 );
@@ -43,7 +43,7 @@ ehbs.handlebars.registerHelper(
 const sess = {
   secret: "Super secret secret",
   cookie: {
-    maxAge: 86400000,
+    maxAge: 86400000, //one day
     httpOnly: true,
     secure: false,
     sameSite: "strict",
