@@ -16,11 +16,10 @@ app.set("view engine", "handlebars");
 
 var ehbs = exphbs.create({});
 
+// Helper that checks if the logged in user is the owner of the post. If so add additional options to page
 ehbs.handlebars.registerHelper(
   "checkUserPosts",
   function (userPosts, logged_user_id) {
-    console.log(`user posts ${userPosts}`);
-    console.log(`logged user ${logged_user_id}`);
     if (userPosts.user_id === logged_user_id) {
       return `
     <a href="/editpost/${userPosts.id}" class=" d-inline btn btn-primary">Click edit post</a>
@@ -29,6 +28,7 @@ ehbs.handlebars.registerHelper(
   }
 );
 
+// Helper that checks if the logged in user is the owner of the comment. If so add additional options to page
 ehbs.handlebars.registerHelper(
   "checkUserComments",
   function (comment_id, user_id, logged_user_id) {

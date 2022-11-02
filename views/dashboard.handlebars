@@ -1,11 +1,10 @@
 <div class="d-flex align-items-center justify-content-center">
   <h2>MY POSTS</h2>
 </div>
+{{! -- Renders all post by a user to dashboard}}
 {{#each userPosts.Posts as |userPost|}}
 {{>userPost}}
 {{/each}}
 <div class="d-flex align-items-center justify-content-center">
   <a href="/newpost" type="submit" class="btn btn-primary">Submit a new post</a>
 </div>
-
-{{!-- <script src="/javascript/dashboard.js"></script> --}}

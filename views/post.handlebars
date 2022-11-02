@@ -9,13 +9,16 @@
     </div>
     <div class="card-body">
       <p class="card-text">{{userPosts.content}}</p>
+      {{! -- Checks if the post belongs to the logged in user to display additional options }}
      {{#checkUserPosts userPosts logged_user_id}}
      {{/checkUserPosts}}
     </div>
 
   </div>
 </div>
+{{! -- Renders all comments belonging to the post }}
 {{#each userPosts.Comments as |comment|}}
+{{! -- "=../" Allows comments to have access to userPosts properties}}
 {{>comment logged_user_id=../logged_user_id}}
 {{/each}}
 <div class="d-flex align-items-center justify-content-center">

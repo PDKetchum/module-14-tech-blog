@@ -8,6 +8,7 @@
     </div>
     <div class="card-body">
       <p class="card-text">{{content}}</p>
+      {{! -- Checks if the comment belongs to the logged in user to display additional options }}
       {{#checkUserComments id user_id logged_user_id}}{{/checkUserComments}}
     </div>
   </div>

@@ -31,6 +31,7 @@
               <a class="nav-link" href="/dashboard">Dashboard</a>
             </li>
             <li class="nav-item">
+              {{! -- Checks if user is logged in or not to display the appropriate options }}
               {{#if logged_in}}
               <button class="nav-link no-button" id="logout-button">Logout</a>
               {{else}}
