@@ -3,9 +3,9 @@ async function editPost(event) {
   // Takes user's input
   const titleText = document.querySelector("#title-text").value.trim();
   const contentText = document.querySelector("#content-text").value.trim();
+  // Obtains the post id
   const id = document.location.pathname.split("/").at(-1);
 
-  console.log(id);
   if (titleText && contentText) {
     const response = await fetch(`/api/post/${id}`, {
       method: "put",

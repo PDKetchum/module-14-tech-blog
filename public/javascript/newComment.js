@@ -2,6 +2,7 @@ async function addComment(event) {
   event.preventDefault();
   // Takes user's input
   const commentText = document.querySelector("#form-text").value.trim();
+  // Obtains the comment id
   const id = document.location.pathname.split("/").at(-1);
   if (commentText) {
     const response = await fetch("/api/comment", {

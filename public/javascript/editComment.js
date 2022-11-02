@@ -1,8 +1,9 @@
 async function editComment(event) {
   event.preventDefault();
-  // Takes user's input
 
+  // Takes user's input
   const contentText = document.querySelector("#content-text").value.trim();
+  // Obtains the comment id
   const id = document.location.pathname.split("/").at(-1);
 
   if (contentText) {
@@ -15,6 +16,7 @@ async function editComment(event) {
     });
     const comment = await response.json();
     if (response.ok) {
+      // Returns user to the post that the comment belongs to
       document.location.replace(`/post/${comment.post_id}`);
     } else {
       alert(response.statusText);
