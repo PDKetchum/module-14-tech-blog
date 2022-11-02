@@ -1,4 +1,4 @@
-async function addPost(event) {
+async function editComment(event) {
   event.preventDefault();
   // Takes user's input
 
@@ -25,4 +25,4 @@ async function addPost(event) {
 
 document
   .querySelector("#update-comment-btn")
-  .addEventListener("click", addPost);
+  .addEventListener("click", editComment);

@@ -1,4 +1,4 @@
-async function addPost(event) {
+async function editPost(event) {
   event.preventDefault();
   // Takes user's input
   const titleText = document.querySelector("#title-text").value.trim();
@@ -24,4 +24,4 @@ async function addPost(event) {
   }
 }
 
-document.querySelector("#update-post-btn").addEventListener("click", addPost);
+document.querySelector("#update-post-btn").addEventListener("click", editPost);
