@@ -3,7 +3,7 @@ const { User } = require("../../models");
 const withAuth = require("../../utils/auth");
 
 router.get("/", withAuth, async (req, res) => {
-  // find all users
+  // Find all users
   try {
     const userData = await User.findAll({});
     res.status(200).json(userData);
@@ -13,7 +13,7 @@ router.get("/", withAuth, async (req, res) => {
 });
 
 router.get("/:id", withAuth, async (req, res) => {
-  // find one user by its `id` value
+  // Find one user by its `id` value
   try {
     const userData = await User.findByPk(req.params.id, {});
 
@@ -29,7 +29,7 @@ router.get("/:id", withAuth, async (req, res) => {
 });
 
 router.delete("/:id", withAuth, async (req, res) => {
-  // delete a user by its `id` value
+  // Delete a user by its `id` value
   try {
     const userData = await User.destroy({
       where: {
@@ -52,6 +52,7 @@ router.post("/signup", async (req, res) => {
   // Create a user
   try {
     const userData = await User.create(req.body);
+    // Create session variables based on the user who signed up
     req.session.save(() => {
       req.session.user_id = userData.id;
       req.session.user_name = userData.name;

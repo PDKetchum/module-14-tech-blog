@@ -3,7 +3,7 @@ const { Post } = require("../../models");
 const withAuth = require("../../utils/auth");
 
 router.get("/", withAuth, async (req, res) => {
-  // find all posts
+  // Find all posts
   try {
     const postData = await Post.findAll({});
     res.status(200).json(postData);
@@ -13,7 +13,7 @@ router.get("/", withAuth, async (req, res) => {
 });
 
 router.get("/:id", withAuth, async (req, res) => {
-  // find one post by its `id` value
+  // Find one post by its `id` value
   try {
     const postData = await Post.findByPk(req.params.id, {});
 
@@ -29,7 +29,7 @@ router.get("/:id", withAuth, async (req, res) => {
 });
 
 router.post("/", withAuth, async (req, res) => {
-  // create a new post
+  // Create a new post
   try {
     req.body.user_id = req.session.user_id;
     const postData = await Post.create(req.body);
@@ -40,7 +40,7 @@ router.post("/", withAuth, async (req, res) => {
 });
 
 router.put("/:id", withAuth, async (req, res) => {
-  // update a category by its `id` value
+  // Update a category by its `id` value
   try {
     const postData = await Post.update(req.body, {
       where: {
@@ -58,7 +58,7 @@ router.put("/:id", withAuth, async (req, res) => {
 });
 
 router.delete("/:id", withAuth, async (req, res) => {
-  // delete a post by its `id` value
+  // Delete a post by its `id` value
   try {
     const postData = await Post.destroy({
       where: {

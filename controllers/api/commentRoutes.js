@@ -3,7 +3,7 @@ const { Comment, Post } = require("../../models");
 const withAuth = require("../../utils/auth");
 
 router.get("/", withAuth, async (req, res) => {
-  // find all comments
+  // Find all comments
   try {
     const commentData = await Comment.findAll({});
     res.status(200).json(commentData);
@@ -13,7 +13,7 @@ router.get("/", withAuth, async (req, res) => {
 });
 
 router.get("/:id", withAuth, async (req, res) => {
-  // find one comment by its `id` value
+  // Find one comment by its `id` value
   try {
     const commentData = await Comment.findByPk(req.params.id, {});
 
@@ -29,7 +29,7 @@ router.get("/:id", withAuth, async (req, res) => {
 });
 
 router.post("/", withAuth, async (req, res) => {
-  // create a new comment
+  // Create a new comment
   try {
     req.body.user_id = req.session.user_id;
     const commentData = await Comment.create(req.body);
@@ -40,7 +40,7 @@ router.post("/", withAuth, async (req, res) => {
 });
 
 router.put("/:id", withAuth, async (req, res) => {
-  // update a category by its `id` value
+  // Update a comment by its `id` value
   try {
     const result = await Comment.update(req.body, {
       where: {
@@ -51,7 +51,7 @@ router.put("/:id", withAuth, async (req, res) => {
       res.status(404).json({ message: "No comment with this id!" });
       return;
     }
-
+    // Return comment data
     const comment = await Comment.findByPk(req.params.id);
     res.status(200).json(comment);
   } catch (err) {
@@ -60,7 +60,8 @@ router.put("/:id", withAuth, async (req, res) => {
 });
 
 router.delete("/:id", withAuth, async (req, res) => {
-  // delete a comment by its `id` value
+  // Delete a comment by its `id` value
+  // First before deletion, store data into a variable
   const comment = await Comment.findByPk(req.params.id, {});
   try {
     const commentData = await Comment.destroy({
@@ -73,6 +74,7 @@ router.delete("/:id", withAuth, async (req, res) => {
       return;
     }
 
+    // Return the comment data before deletion
     res.status(200).json(comment);
   } catch (err) {
     res.status(500).json(err);

@@ -5,7 +5,7 @@ const withAuth = require("../utils/auth");
 const router = require("express").Router();
 
 router.get("/login", (req, res) => {
-  // If the user is already logged in, redirect the request to another route
+  // If the user is already logged in, redirect the request to homepage
   if (req.session.logged_in) {
     res.redirect("/");
     return;
@@ -14,7 +14,7 @@ router.get("/login", (req, res) => {
 });
 
 router.get("/signup", (req, res) => {
-  // If the user is already logged in, redirect the request to another route
+  // If the user is already logged in, redirect the request to homepage
   if (req.session.logged_in) {
     res.redirect("/");
     return;
@@ -23,6 +23,7 @@ router.get("/signup", (req, res) => {
 });
 
 router.get("/", async (req, res) => {
+  // Renders all existing posts to the homepage
   try {
     const dbPostData = await Post.findAll({
       include: [
@@ -47,6 +48,7 @@ router.get("/", async (req, res) => {
 });
 
 router.get("/dashboard", withAuth, async (req, res) => {
+  // Finds all posts by a user to render to the dashboard page
   try {
     const userData = await User.findByPk(req.session.user_id, {
       include: [
@@ -68,11 +70,12 @@ router.get("/dashboard", withAuth, async (req, res) => {
 });
 
 router.get("/newpost", withAuth, (req, res) => {
-  // If the user is already logged in, redirect the request to another route
+  // Render the new post form when a user clicks to create a new post
   res.render("newPostForm");
 });
 
 router.get("/post/:id", withAuth, async (req, res) => {
+  // Renders a post to a page by id
   try {
     const userData = await Post.findByPk(req.params.id, {
       include: [
@@ -97,6 +100,7 @@ router.get("/post/:id", withAuth, async (req, res) => {
 });
 
 router.get("/editpost/:id", withAuth, async (req, res) => {
+  // Renders a post edit page by id
   try {
     console.log(req.params.id);
     const userData = await Post.findByPk(req.params.id, {
@@ -108,9 +112,7 @@ router.get("/editpost/:id", withAuth, async (req, res) => {
         { model: User, attributes: ["username"] },
       ],
     });
-    console.log(userData);
     const userPosts = userData.get({ plain: true });
-    console.log(userPosts);
     res.render("editpost", {
       userPosts: userPosts,
       logged_in: req.session.logged_in,
@@ -123,6 +125,7 @@ router.get("/editpost/:id", withAuth, async (req, res) => {
 });
 
 router.get("/editcomment/:id", withAuth, async (req, res) => {
+  // Renders a comment edit page by id
   try {
     console.log(req.params.id);
     const userData = await Comment.findByPk(req.params.id, {
@@ -130,7 +133,6 @@ router.get("/editcomment/:id", withAuth, async (req, res) => {
       include: [{ model: User, attributes: ["username"] }],
     });
     const userComments = userData.get({ plain: true });
-    console.log(userComments);
     res.render("editComment", {
       userComments: userComments,
       logged_in: req.session.logged_in,
