@@ -6,14 +6,6 @@ body {
   border-color: rgb(214, 98, 135);
 }
 
-.no-button {
-  background: none;
-  border: none;
-  cursor: pointer;
-  text-decoration: none;
-  font-size: 100%;
-}
-
 .post {
   background-color: rgb(255, 205, 222);
 }
@@ -36,6 +28,14 @@ body {
 .btn:hover {
   background-color: rgb(253, 140, 178);
   border-color: rgb(252, 168, 196);
+}
+
+.no-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 100%;
 }
 
 #tech-icon {
