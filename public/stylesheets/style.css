@@ -14,8 +14,12 @@ body {
   font-size: 100%;
 }
 
-.card-header {
+.post {
   background-color: rgb(255, 205, 222);
+}
+
+.comment {
+  background-color: rgb(249, 229, 236);
 }
 
 .card {
@@ -36,4 +40,8 @@ body {
 
 #tech-icon {
   max-height: 60px;
+}
+
+#bunny-image {
+  max-height: 200px;
 }

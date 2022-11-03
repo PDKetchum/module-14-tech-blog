@@ -47,6 +47,11 @@ router.get("/", async (req, res) => {
   }
 });
 
+router.get("/exit", (req, res) => {
+  // takes a user who logged out to landing page
+  res.render("exit");
+});
+
 router.get("/dashboard", withAuth, async (req, res) => {
   // Finds all posts by a user to render to the dashboard page
   try {

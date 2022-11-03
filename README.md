@@ -38,5 +38,8 @@ Heroku URL:
 ## Credit
 
 Background Image: Photo by <a href="https://unsplash.com/@pawel_czerwinski?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Pawel Czerwinski</a> on <a href="https://unsplash.com/?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+Exit Image: Image by <a href="https://pixabay.com/users/nitanever-239109/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=4031334">Anastasiya Kolpakova</a> from <a href="https://pixabay.com//?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=4031334">Pixabay</a>
 
 _Screenshots of page_
+![](screenshot1.png)
+![](screenshot2.png)
