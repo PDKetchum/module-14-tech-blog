@@ -27,13 +27,16 @@ In terminal
 
 1. `npm install`
 2. Create `.env` file and enter mysql credentials with `DB_NAME` set as "`blog_db`"
-3. Connect to database with `mysql -u root -p`
-4. `npm run seed`
-5. `npm start`
-6. Open `https://localhost:3001`
+3. `npm run seed`
+4. `npm start`
+5. Open `https://localhost:3001`
 
 GitHub URL: https://github.com/PDKetchum/module-14-tech-blog
 
 Heroku URL:
+
+## Credit
+
+Background Image: Photo by <a href="https://unsplash.com/@pawel_czerwinski?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Pawel Czerwinski</a> on <a href="https://unsplash.com/?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
 
 _Screenshots of page_
