@@ -118,7 +118,7 @@ router.get("/editpost/:id", withAuth, async (req, res) => {
       ],
     });
     const userPosts = userData.get({ plain: true });
-    res.render("editpost", {
+    res.render("editPost", {
       userPosts: userPosts,
       logged_in: req.session.logged_in,
       logged_user_id: req.session.user_id,
